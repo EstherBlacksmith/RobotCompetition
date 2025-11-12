@@ -4,6 +4,8 @@ public abstract class Robot {
     String name;
     String manufacturer;
     int manufacturingYear;
+    Date registrationDate;
+    RobotType robotType;
 
     public String getName() {
         return name;
@@ -37,9 +39,12 @@ public abstract class Robot {
         this.registrationDate = registrationDate;
     }
 
-    Date registrationDate;
+    public RobotType getRobotType() {
 
-    void getTechnicalDescription() {
+        return robotType;
+    }
+
+    String getTechnicalDescription() {
 
     }
 }

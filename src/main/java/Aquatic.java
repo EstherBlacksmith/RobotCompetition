@@ -6,9 +6,9 @@ public class Aquatic extends Robot{
 
 
     @Override
-    public void getTechnicalDescription() {
-        System.out.println( name + " can go down " + maximumDeep + " using "  + propulsionSystem + " propulsion"
-                + ". Manufactured by " + manufacturer + "in " + manufacturingYear);
+    public String getTechnicalDescription() {
+       return name + " can go down " + maximumDeep + " using "  + propulsionSystem + " propulsion"
+                + ". Manufactured by " + manufacturer + "in " + manufacturingYear;
     }
 
 

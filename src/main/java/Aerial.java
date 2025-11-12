@@ -4,9 +4,9 @@ public class Aerial extends Robot{
     protected int flightAutonomy;
 
     @Override
-    public void getTechnicalDescription() {
-        System.out.println(name + " can fly until " + maximumAltitud + " during " + flightAutonomy + "." +
-                ". Fabricated in " + manufacturingYear + " by " + manufacturer);
+    public String getTechnicalDescription() {
+        return name + " can fly until " + maximumAltitud + " during " + flightAutonomy + "." +
+                ". Fabricated in " + manufacturingYear + " by " + manufacturer;
 
     }
 }

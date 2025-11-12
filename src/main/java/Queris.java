@@ -1,17 +1,45 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Queris {
 
-/*1. **Listar todos los robots** registrados con su descripción técnica.
-2. **Filtrar robots terrestres con velocidad mayor a X km/h**.
-            3. **Buscar robots por fabricante** (sin importar el tipo).*/
 
     protected void getRobotsByTechDescription(List<Robot> robotsToList){
         robotsToList.stream()
-                .forEach((robot) ->
-                {
-                    System.out.println(robot.name + ". Technical description" + robot.getTechnicalDescription());
+                .forEach((robot) ->                {
+                    System.out.println(robot.getName() +". Technical description" + robot.getTechnicalDescription());
                 });
+    }
 
+    protected List<Terrestrial> getTerrestrialRobots(List<Terrestrial> robotsToList){
+
+        List<Terrestrial> robotsByTypeTerrestrial = new ArrayList<>();
+
+        for (Robot robot : robotsToList) {
+            if (robot.getRobotType().compareTo(RobotType.TERRESTRIAL) > 0) {
+                robotsByTypeTerrestrial.add((Terrestrial) robot);
+            }
+        }
+        return robotsByTypeTerrestrial;
+    }
+
+
+    protected List<Robot> getRobotsByManufacturer(List<Robot> robotsToList, String manufacturer){
+        List<Robot> robotsByManufacturer =robotsToList.stream()
+                .filter(robot -> robot.getManufacturer().equalsIgnoreCase(manufacturer))
+                .toList();
+
+        return robotsByManufacturer;
+    }
+
+
+    protected List<Terrestrial> getTerrestrialRobotsByVelocity(List<Terrestrial> robotsToList, double maxVelocity){
+        List<Terrestrial> robotsTerrestrialMaxVelocity = List.of();
+
+        robotsTerrestrialMaxVelocity = getTerrestrialRobots(robotsToList).stream()
+                .filter(terrestrial -> terrestrial.getMaximumVelocity() > maxVelocity)
+                .toList();
+
+        return robotsTerrestrialMaxVelocity;
     }
 }
