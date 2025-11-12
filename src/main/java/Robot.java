@@ -6,6 +6,16 @@ public abstract class Robot {
     int manufacturingYear;
     Date registrationDate;
     RobotType robotType;
+    PropulsionSystem propulsionSystem;
+
+    public PropulsionSystem getPropulsionSystem() {
+        return propulsionSystem;
+    }
+
+    protected void setPropulsionSystem(PropulsionSystem propulsionSystem) {
+        this.propulsionSystem = propulsionSystem;
+    }
+
 
     public String getName() {
         return name;
@@ -45,6 +55,6 @@ public abstract class Robot {
     }
 
     String getTechnicalDescription() {
-
+        return "";
     }
 }

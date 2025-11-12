@@ -1,10 +1,19 @@
-public class Terrestrial extends Robot{
+import java.util.Objects;
+
+public class Terrestrial extends Robot {
 
 
     protected Double maximumVelocity;
-    protected TractionSystem tractionSystem;
+    protected PropulsionSystem propulsionSystem;
 
+    public Terrestrial(Double maximumVelocity, PropulsionSystem propulsionSystem) throws Exception {
+        if(maximumVelocity <0){
+            throw new Exception("Velocity can't be negative");
+        }
 
+        this.maximumVelocity = maximumVelocity;
+        this.propulsionSystem = Objects.requireNonNull(propulsionSystem);
+    }
 
     public Double getMaximumVelocity() {
         return maximumVelocity;
@@ -14,18 +23,18 @@ public class Terrestrial extends Robot{
         this.maximumVelocity = maximumVelocity;
     }
 
-    public TractionSystem getTractionSystem() {
-        return tractionSystem;
+    public PropulsionSystem getTractionSystem() {
+        return propulsionSystem;
     }
 
-    protected void setTractionSystem(TractionSystem tractionSystem) {
-        this.tractionSystem = tractionSystem;
+    protected void setTractionSystem(PropulsionSystem propulsionSystem) {
+        this.propulsionSystem = propulsionSystem;
     }
 
 
     @Override
     public String getTechnicalDescription() {
         return name + " .Manufactured by " + manufacturer + " in " + manufacturingYear +
-                ". Use traction by " + tractionSystem + " and can go until " + maximumVelocity;
+                ". Use traction by " + propulsionSystem + " and can go until " + maximumVelocity;
     }
 }

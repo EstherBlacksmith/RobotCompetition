@@ -1,3 +1,3 @@
 public enum PropulsionSystem {
-    JET,HELIX
+    JET, HELIX, CATERPILLAR, WHEELS
 }
